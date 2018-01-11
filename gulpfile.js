@@ -1,8 +1,8 @@
-var gulp = require('gulp');
-var del = require('del');
-var download = require('gulp-download-stream');
+let gulp = require('gulp');
+let del = require('del');
+let download = require('gulp-download-stream');
 
-var version = '4.9';
+let version = '4.9.1';
 
 gulp.task('download', function () {
   return download([
