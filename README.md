@@ -34,3 +34,4 @@ _Note: The `~` is a [webpack convention](https://github.com/webpack-contrib/sass
 4. Run `npm run build`.
 5. Bump the version in [package.json](https://github.com/pressbooks/wp-admin-colors/blob/master/package.json#L3) and [package-lock.json](https://github.com/pressbooks/wp-admin-colors/blob/master/package-lock.json#L3) to match the WordPress version.
 6. Commit and push, then run `npm publish` to publish a new version.
+7. Tag a new release: https://github.com/pressbooks/wp-admin-colors/releases
