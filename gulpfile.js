@@ -1,6 +1,5 @@
 let gulp = require("gulp");
-let del = require("del");
-let download = require("gulp-download-stream");
+let download = require("gulp-download2");
 
 let version = "5.3.2";
 
