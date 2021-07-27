@@ -1,7 +1,7 @@
 let gulp = require("gulp");
 let download = require("gulp-download2");
 
-let version = "5.7.2";
+let version = "5.8";
 
 gulp.task("clean", require("del").bind(null, "dist/"));
 
