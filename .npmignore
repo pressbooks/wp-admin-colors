@@ -1,1 +1,4 @@
-gulpfile.js
+composer.json
+composer.lock
+vendor
+wordpress
