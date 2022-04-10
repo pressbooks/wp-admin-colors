@@ -1,9 +1,8 @@
 name: Update dependencies
 
 on:
-  [workflow_dispatch]
-  # - schedule: []
-  #     - cron: "0 0 * * 1"
+  schedule:
+    - cron: "0 0 * * 1"
 jobs:
   update-dependencies:
     runs-on: ubuntu-latest
