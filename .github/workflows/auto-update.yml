@@ -20,10 +20,10 @@ jobs:
         id: version-compare
         run: echo "::set-output name=COMMIT_MESSAGE::$(node index.js ${{ steps.current-version.outputs.VERSION }} ${{ steps.new-version.outputs.VERSION }})"
       - name: Install dependencies
-        if: steps.version-compare.COMMIT_MESSAGE !== ''
+        if: steps.version-compare.COMMIT_MESSAGE != ''
         run: npm ci
       - name: Update WordPress files
-        if: steps.version-compare.COMMIT_MESSAGE !== ''
+        if: steps.version-compare.COMMIT_MESSAGE != ''
         run: |
           composer require roots/wordpress
           npm run build
