@@ -16,14 +16,14 @@ jobs:
         run: |
           composer require roots/wordpress
           npm run build
-      - name: Check for changed files
-        id: changed-files-specific
-        uses: tj-actions/changed-files@v18.7
-        with:
-          files: dist/*.scss
+      # - name: Check for changed files
+      #   id: changed-files-specific
+      #   uses: tj-actions/changed-files@v18.7
+      #   with:
+      #     files: dist/*.scss
       - name: Get new version
         id: version
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        # if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: echo "::set-output name=VERSION::$(composer show roots/wordpress -f json | jq '.source.reference')"
       - name: Debug
         run: echo ${{ steps.version.outputs.VERSION }}
