@@ -7,7 +7,8 @@
   "license": "GPL-2.0",
   "main": "dist/_admin.scss",
   "devDependencies": {
-    "cpy-cli": "^4.0"
+    "cpy-cli": "^4.0",
+    "semver": "^7.0"
   },
   "scripts": {
     "build": "cpy 'wordpress/wp-admin/css/colors/*.scss' dist"

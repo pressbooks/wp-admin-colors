@@ -3,6 +3,8 @@ name: Update dependencies
 on:
   schedule:
     - cron: "0 0 * * 1"
+  workflow_dispatch: []
+
 jobs:
   update-dependencies:
     runs-on: ubuntu-latest
@@ -14,7 +16,7 @@ jobs:
         run: echo "::set-output name=VERSION::$(cat package.json | jq '.version')"
       - name: Get new version
         id: new-version
-        run: echo "::set-output name=VERSION::$(npx -y semver -c $(curl --silent "https://api.github.com/repos/WordPress/WordPress/tags" | jq -r '.[0].name'))"
+        run: echo "::set-output name=VERSION::$(npx -y semver $(curl --silent "https://api.github.com/repos/WordPress/WordPress/tags" | jq -r '.[0].name'))"
       - name: Compare versions
         id: version-compare
         run: echo "::set-output name=COMMIT_MESSAGE::$(node index.js ${{ steps.current-version.outputs.VERSION }} ${{ steps.new-version.outputs.VERSION }})"
@@ -27,6 +29,7 @@ jobs:
           composer require roots/wordpress
           npm run build
       - name: Check for changed files
+        if: steps.version-compare.COMMIT_MESSAGE != ''
         id: changed-files-specific
         uses: tj-actions/changed-files@v18.7
         with:

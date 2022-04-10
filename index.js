@@ -4,7 +4,7 @@ let currentVersion, newVersion;
 
 [currentVersion, newVersion] = process.argv.slice(2);
 
-switch (semver.diff(currentVersion, newVersion)) {
+switch (semver.diff(currentVersion, semver.clean(newVersion))) {
   case "patch":
     console.log(`fix: add WordPress ${newVersion} support`);
     break;
