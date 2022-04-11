@@ -41,6 +41,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           add-paths: dist
+          labels: automerge
           commit-message: ${{ steps.version-compare.COMMIT_MESSAGE }}
           branch: update-${{ steps.new-version.outputs.VERSION }}
       - name: Merge pull request with built assets into Dependabot branch
