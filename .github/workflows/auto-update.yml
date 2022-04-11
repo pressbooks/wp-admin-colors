@@ -36,9 +36,18 @@ jobs:
           files: dist/*.scss
       - name: Create pull request
         uses: peter-evans/create-pull-request@v4
+        id: cpr
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           add-paths: dist
           commit-message: ${{ steps.version-compare.COMMIT_MESSAGE }}
           branch: update-${{ steps.new-version.outputs.VERSION }}
+      - name: Merge pull request with built assets into Dependabot branch
+        if: ${{ steps.cpr.outputs.pull-request-number }}
+        uses: "pascalgn/automerge-action@v0.15.2"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: automerge
+          MERGE_METHOD: squash
+          PULL_REQUEST: "${{ steps.cpr.outputs.pull-request-number }}"
