@@ -18,11 +18,10 @@ jobs:
         run: echo "::set-output name=VERSION::$(cat package.json | jq '.version')"
       - name: Get new version
         id: new-version
-        run: echo "::set-output name=VERSION::$(npx -y semver $(curl --silent "https://api.github.com/repos/WordPress/WordPress/tags" | jq -r '.[0].name'))"
+        run: echo "::set-output name=VERSION::$(curl --silent "https://api.github.com/repos/WordPress/WordPress/tags" | jq -r '.[0].name')"
       - name: Compare versions
         id: version-compare
         run: echo "::set-output name=COMMIT_MESSAGE::$(node index.js ${{ steps.current-version.outputs.VERSION }} ${{ steps.new-version.outputs.VERSION }})"
-
       - name: Update WordPress files
         if: steps.version-compare.COMMIT_MESSAGE != ''
         run: |
