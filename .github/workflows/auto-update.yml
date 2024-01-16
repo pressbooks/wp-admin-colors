@@ -30,7 +30,7 @@ jobs:
       - name: Check for changed files
         if: steps.version-compare.COMMIT_MESSAGE != ''
         id: changed-files-specific
-        uses: tj-actions/changed-files@v18.7
+        uses: tj-actions/changed-files@v41
         with:
           files: dist/*.scss
       - name: Create pull request
