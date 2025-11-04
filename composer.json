@@ -1,8 +1,8 @@
 {
-    "require": {},
-    "config": {
-        "allow-plugins": {
-            "roots/wordpress-core-installer": true
-        }
+  "require": {},
+  "config": {
+    "allow-plugins": {
+      "roots/wordpress-core-installer": true
     }
+  }
 }
