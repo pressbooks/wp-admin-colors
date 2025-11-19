@@ -1,6 +1,6 @@
 {
   "name": "wp-admin-colors",
-  "version": "6.1.0",
+  "version": "6.0.0",
   "description": "WordPress admin color scheme source files for color scheme developers.",
   "repository": "https://github.com/pressbooks/wp-admin-colors",
   "author": "Pressbooks (Book Oven Inc.)",
@@ -8,7 +8,7 @@
   "main": "dist/_admin.scss",
   "devDependencies": {
     "cpy-cli": "^4.0",
-    "semver": "^7.0"
+    "semver": "7.5.2"
   },
   "scripts": {
     "build": "cpy 'wordpress/wp-admin/css/colors/*.scss' dist"
