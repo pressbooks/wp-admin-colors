@@ -8,7 +8,7 @@
   "main": "dist/_admin.scss",
   "devDependencies": {
     "cpy-cli": "^4.0",
-    "semver": "^7.0"
+    "semver": "7.5.2"
   },
   "scripts": {
     "build": "cpy 'wordpress/wp-admin/css/colors/*.scss' dist"

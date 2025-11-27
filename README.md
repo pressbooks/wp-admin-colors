@@ -21,10 +21,8 @@ npm install wp-admin-colors
 Include in your SCSS file and override variables as desired:
 
 ```
-@import "~wp-admin-colors/dist/admin";
+@import "wp-admin-colors/dist/admin";
 ```
-
-_Note: The `~` is a [webpack convention](https://github.com/webpack-contrib/sass-loader#resolving-import-at-rules)._
 
 ## How to update wp-admin-colors
 
